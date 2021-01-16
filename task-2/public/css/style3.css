@@ -1,0 +1,41 @@
+body{
+
+    font-family:'Times New Roman', Times, serif;
+}
+
+h1{
+    text-align: center;
+    margin:30px auto;
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+    background-color: rgba(46, 35, 43, 0.885);
+    padding: 5px 0px;
+
+
+}
+
+
+.card-body{
+    background-color: rgba(237, 237, 237, 0.933);
+    text-align: right;
+    padding:20px;
+
+
+}
+.card{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: 2px solid rgb(60, 60, 60);
+    
+}
+
+.card-title{
+    font-weight: bold;
+    color:rgb(99, 0, 0)
+}
+.card-text{
+    font-weight: normal;
+    font-size: large;
+}

@@ -1,0 +1,17 @@
+
+{{>header}}
+
+<div class="container">
+    <div class="row">
+    {{#each data.articles}}
+        <div class="card mb-3"style="width: 70%;">
+        <img src="{{urlToImage}}" class="card-img-top img-fluid" alt="this is an image">
+        <div class="card-body"> 
+            <h5 class="card-title">{{title}} </h5>
+            <p class="card-text">{{description}}</p>
+        </div>
+        </div>
+    {{/each}}
+    </div>
+</div>
+{{>footer}}

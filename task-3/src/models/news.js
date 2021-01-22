@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 var moment = require('moment');
-const validator = require('validator')
-const News = mongoose.model("News",{
+// const validator = require('validator')
+const newsSchema = mongoose.Schema({
     title:{
         type:String,
         unique:true,
@@ -17,26 +17,32 @@ const News = mongoose.model("News",{
     author:{
         type:String,
         required:true,
-        uppercase:true,
+        // uppercase:true,
         trim:true
     },
-    date: { 
-        type: Date, 
-        default: function(){
-            return moment().add(2, 'hour');
-        }
-    },   
+    reporter:{
+        type:mongoose.Schema.Types.ObjectId,
+        required:true,
+        ref:"Reporter"
+    },
+    image:{
+      type:Buffer
+    }
+    // date: { 
+    //     type: Date, 
+    //     default: function(){
+    //         return moment().add(2, 'hour');
+    //     }
+    // }
+},{timestamps:true})
 
-    // date:{
-    //     type:Date,
-    //     required: true,
-    //     default:Date.now, 
-    // }, 
-})
+newsSchema.methods.toJSON = function(){
+    const news = this
+    const newsObject = news.toObject()
+    delete newsObject.updatedAt
+    return newsObject
+}
 
 
-
-
-
-
+const News = mongoose.model("News",newsSchema)
 module.exports = News

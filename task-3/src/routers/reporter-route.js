@@ -9,12 +9,13 @@ const router = new express.Router()
 router.post('/users',async(req,res)=>{
     const reporter = new Reporter(req.body)
     try{
-        await reporter.save()
-        const token = await reporter.getToken()
-        res.status(200).send({reporter})
+      
+        await reporter.save()                     
+        const token = await reporter.getToken()         
+        res.status(200).send({reporter,token})
     }
-    catch(error){
-        res.status(400).send('Unable to Post')
+    catch (error){
+        res.status(400).send(error)
     }
 })
 

@@ -1,0 +1,33 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <h3><b>N</b>ews-<b>A</b>pp</h3>
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navhome"
+            aria-controls="navhome"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+                  
+    <div class="collapse navbar-collapse" id="navhome">
+        <ul class="navbar-nav mr-auto">
+                  
+        <li routerLinkActive="nav-item active current">
+            <a class="nav-link" routerLink="/signUp">Sign Up</a>
+        </li>
+
+        <li routerLinkActive="nav-item active current">
+            <a class="nav-link" routerLink="/login">Login</a>
+        </li>
+
+        <li routerLinkActive="nav-item active current">
+            <a class="nav-link"  routerLink="/" (click)="logout()">Logout</a>
+        </li>
+        </ul>
+    </div>
+</nav>
+         

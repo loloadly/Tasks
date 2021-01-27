@@ -1,0 +1,15 @@
+
+footer{
+    background-color: rgba(39, 39, 39, 0.885);
+    line-height: 1;
+    width: 100%;
+
+}
+div{
+   
+    color: white;
+    text-align:center;
+}
+p{
+    margin-top: 5px;
+}

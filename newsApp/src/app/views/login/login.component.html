@@ -1,0 +1,68 @@
+
+<div class="container col-lg-8 mt-3"><h3 >Please login</h3></div>
+
+<form 
+#myForm="ngForm" 
+(ngSubmit)='login(myForm.value)'
+class="container mt-5 col-lg-5 col-md-6">
+
+
+<div class="form-group">
+  <label for="email">E-mail </label>
+  <input
+    type="text"
+    class="form-control"
+    id="email"
+    name="email"
+    ngModel
+    #email="ngModel"
+    email
+    (change)="log(email)"
+    required
+    placeholder="Enter Your Email"
+  />
+
+  <div
+    *ngIf="email.touched && email.invalid"
+    class="d-flex justify-content-center"
+  >
+    <div *ngIf="email.errors?.required" class="errors">Email is required</div>
+    <div *ngIf="email.errors?.email" class="errors">Email is invalid</div>
+  </div>
+</div>
+
+
+
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input 
+    type="password" 
+    class="form-control" 
+    id="password"
+    name="password"
+    ngModel
+    #password="ngModel"
+    password
+    (change)="log(password)"
+    required
+    minlength="3"
+    placeholder="Enter Your Password"
+    >
+
+    <div
+    class="errors d-flex justify-content-center"
+    *ngIf="password.touched && password.invalid"
+  >
+    <div *ngIf="password.errors?.required">*Password is required*</div>
+    <div *ngIf="password.errors?.minlength"> 
+        *Min-Length should be
+        {{ password.errors?.minlength.requiredLength }} *</div>
+  </div>
+
+
+  </div>
+<div class="errors d-flex justify-content-center errors" *ngIf='invalidLogin'>*Please check your email and password*</div>
+
+<button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">Login</button>
+  </form>

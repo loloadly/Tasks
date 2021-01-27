@@ -23,7 +23,7 @@ router.post('/users/login',async(req,res)=>{
     try{
         const reporter = await Reporter.findByCredentials(req.body.email,req.body.password)
         const token = await reporter.getToken()
-        res.status(200).send({reporter})
+        res.status(200).send({reporter,token})
     }
     catch(error){
         res.status(400).send('Unabl to login')
